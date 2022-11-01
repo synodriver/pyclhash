@@ -20,7 +20,7 @@ for compiler, args in [
 ]:
     BUILD_ARGS[compiler] = args
 
-os.environ["CFLAGS"] = "-msse4.1"  # "-msse4.1 -mfma -mavx -march=native"
+os.environ["CFLAGS"] = "-msse4.1 -mpopcnt"  # "-msse4.1 -mfma -mavx -march=native"
 
 
 class build_ext_compiler_check(build_ext):
