@@ -20,7 +20,8 @@ for compiler, args in [
 ]:
     BUILD_ARGS[compiler] = args
 
-os.environ["CFLAGS"] = "-march=native" #"-msse4.1 -mfma -mavx -march=native"
+os.environ["CFLAGS"] = "-march=native"  # "-msse4.1 -mfma -mavx -march=native"
+
 
 class build_ext_compiler_check(build_ext):
     def build_extensions(self):
@@ -33,8 +34,8 @@ class build_ext_compiler_check(build_ext):
 
 extensions = [
     Extension(
-        "pyclhash.backends.cython._hash_cy",
-        ["pyclhash/backends/cython/_hash_cy.pyx", "./dep/src/clhash.c"],
+        "pyclhash.backends.cython._clhash",
+        ["pyclhash/backends/cython/_clhash.pyx", "./dep/src/clhash.c"],
         include_dirs=["./dep/include"],
     ),
 ]

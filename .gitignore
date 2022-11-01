@@ -6,6 +6,7 @@ dist/
 out/
 lib/
 /_skbuild/
+pyclhash.egg-info/
 .idea/
 *.pyd
 *.pyc

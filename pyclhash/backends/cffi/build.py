@@ -44,7 +44,7 @@ source = """
 """
 
 ffibuilder.set_source(
-    "pyclhash.backends.cffi._hash_cffi",
+    "pyclhash.backends.cffi._clhash",
     source,
     sources=["./dep/src/clhash.c"],
     include_dirs=["./dep/include"],

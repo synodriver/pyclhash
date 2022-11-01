@@ -1,6 +1,9 @@
 """
 Copyright (c) 2008-2022 synodriver <synodriver@gmail.com>
 """
+import sys
+
+sys.path.append(".")
 from random import randint
 from unittest import TestCase
 

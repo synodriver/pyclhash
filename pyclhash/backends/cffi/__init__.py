@@ -3,7 +3,7 @@ Copyright (c) 2008-2022 synodriver <synodriver@gmail.com>
 """
 from _cffi_backend import _CDataBase
 
-from pyclhash.backends.cffi._hash_cffi import ffi, lib
+from pyclhash.backends.cffi._clhash import ffi, lib
 
 RANDOM_64BITWORDS_NEEDED_FOR_CLHASH = lib.RANDOM_64BITWORDS_NEEDED_FOR_CLHASH
 RANDOM_BYTES_NEEDED_FOR_CLHASH = lib.RANDOM_BYTES_NEEDED_FOR_CLHASH
