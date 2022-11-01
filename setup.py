@@ -20,6 +20,7 @@ for compiler, args in [
 ]:
     BUILD_ARGS[compiler] = args
 
+print("Cflags", os.environ["CFLAGS"])
 os.environ["CFLAGS"] = "-msse4.1 -mpopcnt"  # "-msse4.1 -mfma -mavx -march=native"
 
 
