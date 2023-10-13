@@ -10,7 +10,7 @@ from pyclhash.backends.cython cimport clhash
 RANDOM_64BITWORDS_NEEDED_FOR_CLHASH = clhash.RANDOM_64BITWORDS_NEEDED_FOR_CLHASH
 RANDOM_BYTES_NEEDED_FOR_CLHASH = clhash.RANDOM_BYTES_NEEDED_FOR_CLHASH
 
-cdef void delkey(object o):
+cdef void delkey(object o) noexcept:
     cdef void* p = PyCapsule_GetPointer(o, NULL)
     # print("delkey", <uint64_t>p)
     clhash.free_key(p)  # origin one does not handle windows condition
