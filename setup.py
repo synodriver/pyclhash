@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import glob
 import os
+import platform
 import re
 import sys
 from collections import defaultdict
@@ -20,7 +20,9 @@ for compiler, args in [
 ]:
     BUILD_ARGS[compiler] = args
 
-os.environ["CFLAGS"] = "-msse4.2 -mpclmul -funroll-loops"  # "-msse4.1 -mfma -mavx -march=native"
+if platform.machine() in ("AMD64", "x86_64"):
+    os.environ["CFLAGS"] = "-msse4.2 -mpclmul -funroll-loops"
+    # "-msse4.1 -mfma -mavx -march=native"
 
 
 class build_ext_compiler_check(build_ext):
