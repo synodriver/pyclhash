@@ -15,3 +15,4 @@ pyclhash.egg-info/
 *.lib
 *.a
 *.so
+.eggs

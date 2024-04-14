@@ -28,7 +28,7 @@ class build_ext_compiler_check(build_ext):
         compiler = self.compiler.compiler_type
         args = BUILD_ARGS[compiler]
         for ext in self.extensions:
-            ext.extra_compile_args = args
+            ext.extra_compile_args.extend(args)
         super().build_extensions()
 
 
@@ -63,6 +63,9 @@ packages = find_packages(exclude=("test", "tests.*", "test*"))
 def has_option(name: str) -> bool:
     if name in sys.argv[1:]:
         sys.argv.remove(name)
+        return True
+    name = name.strip("-").upper()
+    if os.environ.get(name, None) is not None:
         return True
     return False
 
@@ -115,12 +118,11 @@ def main():
             "Programming Language :: C",
             "Programming Language :: Cython",
             "Programming Language :: Python",
-            "Programming Language :: Python :: 3.6",
-            "Programming Language :: Python :: 3.7",
             "Programming Language :: Python :: 3.8",
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
+            "Programming Language :: Python :: 3.12",
             "Programming Language :: Python :: Implementation :: CPython",
             "Programming Language :: Python :: Implementation :: PyPy",
         ],
